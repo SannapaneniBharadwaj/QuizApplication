@@ -16,6 +16,10 @@ import { ValidateService } from './services/validate.service';
 import { AuthService } from './services/auth.service';
 import { FlashMessagesModule } from 'angular2-flash-messages';
 import { AuthGuard } from './guards/auth.guard';
+import { QuizComponent } from './quiz/quiz.component';
+import { QuizService } from './services/quiz.service';
+import { HelperService } from './services/helper.service';
+import { HttpClientModule } from '@angular/common/http';
 
 const appRoutes: Routes =  [
   {path:'', component: HomeComponent},
@@ -33,16 +37,18 @@ const appRoutes: Routes =  [
     RegisterComponent,
     HomeComponent,
     DashboardComponent,
-    ProfileComponent
+    ProfileComponent,
+    QuizComponent
   ],
   imports: [
     BrowserModule,
     FormsModule,
     HttpModule,
     RouterModule.forRoot(appRoutes),
-    FlashMessagesModule.forRoot()
+    FlashMessagesModule.forRoot(),
+    HttpClientModule
   ],
-  providers: [ValidateService, AuthService, AuthGuard],
+  providers: [ValidateService, AuthService, AuthGuard,QuizService,HelperService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

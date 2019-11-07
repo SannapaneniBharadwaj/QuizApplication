@@ -20,3 +20,15 @@
     <p>Full featured authentication using JSON web tokens. Login and store user data</p>
   </div>
 </div> -->
+
+<div class="jumbotron text-center">
+  <h5>Select Quiz:
+  <select [(ngModel)]="quizName" (click)="select(quizName)">
+      <option *ngFor="let quiz of quizes" [value]="quiz.id">{{quiz.name}}</option>
+  </select>
+</h5>
+</div>
+
+<div>
+  <button class="btn btn-lg btn-success" (click)="goToQuiz();">Start Quiz</button>
+</div>
