@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { QuizService } from 'app/services/quiz.service';
+import { HelperService } from 'app/services/helper.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-home',
@@ -13,7 +15,7 @@ export class HomeComponent implements OnInit {
   quizId: string;
   userName:string;
 
-  constructor(private quizService: QuizService) { }
+  constructor(private quizService: QuizService,private helperService: HelperService,private router: Router) { }
 
   ngOnInit() {
     this.quizes = this.quizService.getAll();
@@ -29,11 +31,12 @@ export class HomeComponent implements OnInit {
   }
 
   goToQuiz() {
-    console.log("Going to Quiz");
-    // console.log("Going to Quiz "+ this.quizName);
-    // this.helperService.setQuizName(this.quizName)
-    // if(this.quizName!='None'){
-    //   this.router.navigate(['./quiz']);
+    console.log("Going to Quiz "+ this.quizName);
+    console.log("Yes")
+    this.helperService.setQuizName(this.quizName)
+    if(this.quizName!='None'){
+      this.router.navigate(['quiz']);
+    }
     }
 
 }
