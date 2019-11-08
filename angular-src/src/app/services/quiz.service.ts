@@ -7,7 +7,8 @@ export class QuizService {
   constructor(private http: HttpClient) { }
 
   get(url: string) {
-    return this.http.get(url);
+    //console.log(url)
+    return this.http.get('http://localhost:3000/quizdata/'+url);
   }
 
   getAll() {

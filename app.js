@@ -33,6 +33,10 @@ const app = express();
 
 const users = require('./routes/users');
 
+const quizdata = require('./routes/quizQuestions');
+
+app.use('/quizdata',quizdata);
+
 // Port Number
 const port = process.env.PORT || 3000;
 
@@ -66,3 +70,4 @@ app.get('*', (req, res) => {
 app.listen(port, () => {
   console.log('Server started on port '+port);
 });
+

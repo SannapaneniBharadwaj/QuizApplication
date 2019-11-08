@@ -62,4 +62,18 @@ router.get('/profile', passport.authenticate('jwt', {session:false}), (req, res,
   res.json({user: req.user});
 });
 
+// Quiz Data
+router.get('/quizdata', (req, res) => {
+
+  // Might have to change how we get the courseID
+  // const courseId = req.body.courseId;
+
+
+  console.log("Hai I am in the quizdata file");
+
+  // Get the file using courseID
+  res.sendFile(path.join(__dirname, 'data/java.json'));
+});
+
+
 module.exports = router;

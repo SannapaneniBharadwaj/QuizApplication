@@ -1,30 +1,50 @@
 const express = require('express');
 const router = express.Router();
+const path = require('path');
+const passport = require('passport');
+const jwt = require('jsonwebtoken');
 
+// Returns Java Quiz json file
+router.get('/data/java.json',  (req, res,next) => {
 
-// Returns Quiz json file
-router.get('/quizdata', (req, res, next) => {
-
-    // Might have to change how we get the courseID
-    const courseId = req.body.courseId;
-
-
-    console.log(courseId);
-
+    res.setHeader('Access-Control-Allow-Origin', 'http://localhost:4200');
+    //console.log(res);
+    console.log(req.url);
     // Get the file using courseID
-    res.sendFile(path.join(__dirname, courseId));
+    res.sendFile(path.join(__dirname, req.url));
   });
 
 
-//   app.get('/src/assets/data.json', (req, res) => {
-//     console.log(res)
-  
-//     /* Insted of doing all this */
-//     // res.writeHead(200, {
-//     //    'Content-type': 'application/json'
-//     // });
-//     // res.end(JSON.stringify(data));
-  
-//     /* Just send the file */
-//     res.sendFile(path.join(__dirname, '/src/assets', 'data.json'));
-//   });
+  // Returns HTML Quiz json file
+router.get('/data/html.json',  (req, res,next) => {
+
+    res.setHeader('Access-Control-Allow-Origin', 'http://localhost:4200');
+    //console.log(res);
+    console.log(req.url);
+    // Get the file using courseID
+    res.sendFile(path.join(__dirname, req.url));
+  });
+
+
+  // Returns General Quiz json file
+router.get('/data/general.json',  (req, res,next) => {
+
+    res.setHeader('Access-Control-Allow-Origin', 'http://localhost:4200');
+    //console.log(res);
+    console.log(req.url);
+    // Get the file using courseID
+    res.sendFile(path.join(__dirname, req.url));
+  });
+
+
+  // Returns JavaScript json file
+router.get('/data/javascript.json',  (req, res,next) => {
+
+    res.setHeader('Access-Control-Allow-Origin', 'http://localhost:4200');
+    //console.log(res);
+    console.log(req.url);
+    // Get the file using courseID
+    res.sendFile(path.join(__dirname, req.url));
+  });
+
+  module.exports = router;
