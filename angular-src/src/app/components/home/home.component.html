@@ -24,6 +24,7 @@
 <div class="jumbotron text-center">
   <h5>Select Quiz:
   <select [(ngModel)]="quizName" (click)="select(quizName)">
+      <option disabled>Select an option</option>
       <option *ngFor="let quiz of quizes" [value]="quiz.id">{{quiz.name}}</option>
   </select>
 </h5>
