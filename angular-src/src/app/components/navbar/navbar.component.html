@@ -13,7 +13,12 @@
         <ul class="navbar-nav ml-auto">
           <!-- <li class="nav-item" *ngIf="authService.loggedIn()" [routerLinkActive]="['active']" [routerLinkActiveOptions] = "{exact:true}">
             <a class="nav-link" [routerLink]="['/dashboard']">Dashboard </a>
+
+            {{user.username}}
           </li> -->
+          <li class="nav-item" *ngIf="authService.loggedIn()">
+            <h6 class="nav-link">Hi {{user.username}}</h6>
+          </li>
           <li class="nav-item" *ngIf="authService.loggedIn()" [routerLinkActive]="['active']" [routerLinkActiveOptions] = "{exact:true}">
             <a class="nav-link" [routerLink]="['/profile']">Profile </a>
           </li>
