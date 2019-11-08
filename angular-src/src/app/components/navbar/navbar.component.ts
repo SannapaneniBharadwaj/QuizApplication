@@ -20,13 +20,6 @@ export class NavbarComponent implements OnInit {
     userName:string;
 
   ngOnInit() {
-    // this.authService.getProfile().subscribe(profile => {
-    //   this.user = profile.user;
-    // },
-    //  err => {
-    //    console.log(err);
-    //    return false;
-    //  });
     this.helperService.loggedUser.subscribe(data=>
       {
         this.userName=data;
@@ -37,7 +30,7 @@ export class NavbarComponent implements OnInit {
   onLogoutClick() {
     this.authService.logout();
     this.flashMessage.show('You are logged out', {
-      cssClass: 'alert-success', timeout: 3000
+      cssClass: 'alert-success', timeout: 1000
     });
     this.router.navigate(['/login']);
     return false;
