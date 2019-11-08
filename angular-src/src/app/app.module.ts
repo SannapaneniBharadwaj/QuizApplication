@@ -22,7 +22,8 @@ import { HelperService } from './services/helper.service';
 import { HttpClientModule } from '@angular/common/http';
 
 const appRoutes: Routes =  [
-  {path:'', component: HomeComponent},
+  {path:'', component: LoginComponent},
+  {path:'home', component: HomeComponent, canActivate:[AuthGuard]},
   {path:'register', component: RegisterComponent},
   {path:'login', component: LoginComponent},
   {path:'dashboard', component: DashboardComponent, canActivate:[AuthGuard]},

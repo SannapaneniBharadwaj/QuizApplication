@@ -31,10 +31,10 @@ console.log("in submit method");
         if(data.success) {
           console.log("inside login  if")
           this.authService.storeUserData(data.token, data.user);
-          this.flashMessage.show('You are now logged in', {cssClass: 'alert-success', timeout: 5000});
-          this.router.navigate(['/']);
+          this.flashMessage.show('You are now logged in', {cssClass: 'alert-success', timeout: 2000});
+          this.router.navigate(['/home']);
         } else {
-          this.flashMessage.show(data.msg, {cssClass: 'alert-danger', timeout: 5000});
+          this.flashMessage.show(data.msg, {cssClass: 'alert-danger', timeout: 2000});
           this.router.navigate(['login']);
         }
     });

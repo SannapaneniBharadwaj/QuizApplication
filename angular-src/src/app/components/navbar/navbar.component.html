@@ -5,20 +5,16 @@
       </button>
 
       <div class="collapse navbar-collapse" id="navbarsExampleDefault">
-        <ul class="navbar-nav mr-auto">
+        <ul class="navbar-nav mr-auto" *ngIf="authService.loggedIn()">
           <li class="nav-item" [routerLinkActive]="['active']" [routerLinkActiveOptions] = "{exact:true}">
-            <a class="nav-link" [routerLink]="['/']">Home <span></span></a>
+            <a class="nav-link" [routerLink]="['/home']">Home <span></span></a>
           </li>
-        </ul>
-        <ul class="navbar-nav ml-auto">
-          <!-- <li class="nav-item" *ngIf="authService.loggedIn()" [routerLinkActive]="['active']" [routerLinkActiveOptions] = "{exact:true}">
-            <a class="nav-link" [routerLink]="['/dashboard']">Dashboard </a>
-
-            {{user.username}}
-          </li> -->
           <li class="nav-item" *ngIf="authService.loggedIn()">
             <h6 class="nav-link">Hi {{user.username}}</h6>
           </li>
+        </ul>
+        <ul class="navbar-nav ml-auto">
+
           <li class="nav-item" *ngIf="authService.loggedIn()" [routerLinkActive]="['active']" [routerLinkActiveOptions] = "{exact:true}">
             <a class="nav-link" [routerLink]="['/profile']">Profile </a>
           </li>
