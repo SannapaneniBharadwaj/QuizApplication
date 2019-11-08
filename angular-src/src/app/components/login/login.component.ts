@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { AuthService } from '../../services/auth.service';
 import { Router } from '@angular/router';
 import { FlashMessagesService } from 'angular2-flash-messages';
+import { HelperService } from 'app/services/helper.service';
 
 @Component({
   selector: 'app-login',
@@ -9,13 +10,14 @@ import { FlashMessagesService } from 'angular2-flash-messages';
   styleUrls: ['./login.component.css']
 })
 export class LoginComponent implements OnInit {
-  username: String;
-  password: String;
+  username: string;
+  password: string;
 
   constructor(
     private authService: AuthService,
     private router: Router,
-    private flashMessage: FlashMessagesService) { }
+    private flashMessage: FlashMessagesService,
+    private helperService: HelperService) { }
 
   ngOnInit() {
   }
@@ -31,10 +33,11 @@ console.log("in submit method");
         if(data.success) {
           console.log("inside login  if")
           this.authService.storeUserData(data.token, data.user);
-          this.flashMessage.show('You are now logged in', {cssClass: 'alert-success', timeout: 2000});
+          this.helperService.setUserName(this.username);
+          this.flashMessage.show('You are now logged in', {cssClass: 'alert-success', timeout: 800});
           this.router.navigate(['/home']);
         } else {
-          this.flashMessage.show(data.msg, {cssClass: 'alert-danger', timeout: 2000});
+          this.flashMessage.show(data.msg, {cssClass: 'alert-danger', timeout: 1000});
           this.router.navigate(['login']);
         }
     });
