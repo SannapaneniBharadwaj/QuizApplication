@@ -21,22 +21,22 @@ export class NavbarComponent implements OnInit {
     private helperService: HelperService) { }
 
   ngOnInit() {
-    // this.helperService.loggedUser.subscribe(data=>
-    //   {
-    //     this.userName=data;
-    //   })
-    console.log("In NG onINIT")
-    if(this.authService.loggedIn()){
-      this.authService.getProfile().subscribe(profile => {
-        console.log("Getting user data");
-        this.user = profile.user;
-      },
-       err => {
-         console.log(err);
-         return false;
-       }
-       );  
-    }
+    this.helperService.loggedUser.subscribe(data=>
+      {
+        this.userName=data;
+      })
+    // console.log("In NG onINIT")
+    // if(this.authService.loggedIn()){
+    //   this.authService.getProfile().subscribe(profile => {
+    //     console.log("Getting user data");
+    //     this.user = profile.user;
+    //   },
+    //    err => {
+    //      console.log(err);
+    //      return false;
+    //    }
+    //    );  
+    // }
   }
 
   onLogoutClick() {

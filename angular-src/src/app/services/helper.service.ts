@@ -8,10 +8,11 @@ export class HelperService {
   quizName = 'None';
   quizNameObs:BehaviorSubject<string>;
   loggedUser:BehaviorSubject<string>;
-  
+  uname:string;
+
   constructor(){
     this.quizNameObs = new BehaviorSubject<string>(this.quizName);
-    this.loggedUser=new BehaviorSubject('None');
+    this.loggedUser=new BehaviorSubject(this.uname);
   }
 
   setQuizName(quizNName:string){
