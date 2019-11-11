@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { QuizService } from 'app/services/quiz.service';
 import { HelperService } from 'app/services/helper.service';
 import { Router } from '@angular/router';
+import { equalParamsAndUrlSegments } from '@angular/router/src/router_state';
 
 @Component({
   selector: 'app-home',
@@ -14,6 +15,7 @@ export class HomeComponent implements OnInit {
   quizName: string;
   quizId: string;
   userName:string;
+  errMsg:string;
 
   constructor(private quizService: QuizService,private helperService: HelperService,private router: Router) { }
 
@@ -37,6 +39,9 @@ export class HomeComponent implements OnInit {
     if(this.quizName!='None'){
       this.router.navigate(['quiz']);
     }
+    else
+    {
+      this.errMsg="Please select a value from dropdown";
     }
-
+    }
 }

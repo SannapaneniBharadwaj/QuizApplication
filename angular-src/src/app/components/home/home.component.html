@@ -24,12 +24,15 @@
 <div class="jumbotron text-center">
   <h5>Select Quiz:
   <select [(ngModel)]="quizName" (click)="select(quizName)">
-      <option disabled>Select an option</option>
+      <option disabled [ngValue]="null" selected>Select an option</option>
       <option *ngFor="let quiz of quizes" [value]="quiz.id">{{quiz.name}}</option>
   </select>
 </h5>
+<div class="form-label-group">
+               
+    <label style="color: red;">{{errMsg}}</label>
+  </div>
 </div>
-
 <div>
   <button class="btn btn-lg btn-success" (click)="goToQuiz();">Start Quiz</button>
 </div>
