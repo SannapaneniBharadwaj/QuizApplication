@@ -11,6 +11,7 @@ import { RegisterComponent } from './components/register/register.component';
 import { HomeComponent } from './components/home/home.component';
 import { DashboardComponent } from './components/dashboard/dashboard.component';
 import { ProfileComponent } from './components/profile/profile.component';
+import { NotfoundComponent } from './components/notfound/notfound.component';
 
 import { ValidateService } from './services/validate.service';
 import { AuthService } from './services/auth.service';
@@ -28,7 +29,9 @@ const appRoutes: Routes =  [
   {path:'login', component: LoginComponent},
   {path:'dashboard', component: DashboardComponent, canActivate:[AuthGuard]},
   {path:'profile', component: ProfileComponent, canActivate:[AuthGuard]},
-  {path:'quiz', component: QuizComponent, canActivate:[AuthGuard]}
+  {path:'quiz', component: QuizComponent, canActivate:[AuthGuard]},
+  {path: '404', component: NotfoundComponent},
+  {path: '**', redirectTo: '/404'}
 ]
 
 @NgModule({
@@ -40,7 +43,8 @@ const appRoutes: Routes =  [
     HomeComponent,
     DashboardComponent,
     ProfileComponent,
-    QuizComponent
+    QuizComponent,
+    NotfoundComponent,
   ],
   imports: [
     BrowserModule,

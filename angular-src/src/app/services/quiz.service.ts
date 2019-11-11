@@ -20,4 +20,10 @@ export class QuizService {
     ];
   }
 
+  /*
+  getScore(url,answers){
+    return this.http.get(url,answers);
+  }
+  */
+
 }

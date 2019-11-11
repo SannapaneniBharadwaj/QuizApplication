@@ -66,7 +66,10 @@ export class QuizComponent implements OnInit {
       this.quizName = data;
     })
     console.log("Quiz Name is "+this.quizName);
-    this.loadQuiz(this.quizName);
+    if(this.quizName == 'None'){
+      
+    }
+    else this.loadQuiz(this.quizName);
   }
 
   loadQuiz(quizName: string) {
