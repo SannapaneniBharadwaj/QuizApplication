@@ -11,20 +11,32 @@ import { HelperService } from 'app/services/helper.service';
 })
 export class NavbarComponent implements OnInit {
 
+  user:Object;
+  userName:string;
+
   constructor(
     private authService: AuthService,
     private router: Router,
     private flashMessage: FlashMessagesService,
     private helperService: HelperService) { }
-    user:Object;
-    userName:string;
 
   ngOnInit() {
-    this.helperService.loggedUser.subscribe(data=>
-      {
-        this.userName=data;
-      })
-      console.log('username is' + this.userName);
+    // this.helperService.loggedUser.subscribe(data=>
+    //   {
+    //     this.userName=data;
+    //   })
+    console.log("In NG onINIT")
+    if(this.authService.loggedIn()){
+      this.authService.getProfile().subscribe(profile => {
+        console.log("Getting user data");
+        this.user = profile.user;
+      },
+       err => {
+         console.log(err);
+         return false;
+       }
+       );  
+    }
   }
 
   onLogoutClick() {

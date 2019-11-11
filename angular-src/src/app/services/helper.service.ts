@@ -20,6 +20,12 @@ export class HelperService {
     this.quizNameObs = new BehaviorSubject<string>(this.quizName);
     console.log(this.quizName);
   }
+
+  isQuizSet(){
+    if(this.quizName == 'None') return false;
+    return true;
+  }
+  
   setUserName(uname:string)
   {
     this.loggedUser.next(uname);

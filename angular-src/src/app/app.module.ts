@@ -21,6 +21,7 @@ import { QuizComponent } from './quiz/quiz.component';
 import { QuizService } from './services/quiz.service';
 import { HelperService } from './services/helper.service';
 import { HttpClientModule } from '@angular/common/http';
+import { AuthConfig } from 'angular2-jwt';
 
 const appRoutes: Routes =  [
   {path:'', component: LoginComponent},

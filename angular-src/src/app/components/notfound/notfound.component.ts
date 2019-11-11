@@ -11,7 +11,7 @@ export class NotfoundComponent implements OnInit {
   constructor(private authService: AuthService) { }
 
   ngOnInit() {
-    this.authService.logout();
+    //this.authService.logout();
   }
 
 }

@@ -35,7 +35,7 @@ console.log("in submit method");
           this.authService.storeUserData(data.token, data.user);
           this.helperService.setUserName(this.username);
           this.flashMessage.show('You are now logged in', {cssClass: 'alert-success', timeout: 800});
-          this.router.navigate(['/home']);
+          this.router.navigate(['home']);
         } else {
           this.flashMessage.show(data.msg, {cssClass: 'alert-danger', timeout: 1000});
           this.router.navigate(['login']);

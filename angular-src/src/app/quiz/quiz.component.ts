@@ -4,6 +4,7 @@ import { HelperService } from '../services/helper.service';
 import { Option, Question, Quiz, QuizConfig } from '../models/index';
 //import { NavbarService } from '../services/navbar.service';
 import { LocationStrategy } from '@angular/common';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-quiz',
@@ -49,7 +50,7 @@ export class QuizComponent implements OnInit {
   ellapsedTime = '00:00';
   duration = '';
 
-  constructor(private quizService: QuizService,private helperService:HelperService,private location: LocationStrategy) 
+  constructor(private quizService: QuizService,private helperService:HelperService,private location: LocationStrategy,private router: Router) 
   {
     //added to disable browser back button
     history.pushState(null, null, window.location.href);  
@@ -67,7 +68,7 @@ export class QuizComponent implements OnInit {
     })
     console.log("Quiz Name is "+this.quizName);
     if(this.quizName == 'None'){
-      
+      this.router.navigate(['home']);
     }
     else this.loadQuiz(this.quizName);
   }
