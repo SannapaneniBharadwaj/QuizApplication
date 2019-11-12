@@ -60,6 +60,8 @@ export class QuizComponent implements OnInit {
    }
 
   ngOnInit() {
+    this.score=0;
+    this.wrong=0;
 
     this.quizes = this.quizService.getAll();
     //this.quizName = this.quizes[0].id;
