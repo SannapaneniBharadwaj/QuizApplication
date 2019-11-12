@@ -41,7 +41,7 @@ export class HomeComponent implements OnInit {
     }
     else
     {
-      this.errMsg="Please select a value from dropdown";
+      this.errMsg="Please select quiz";
     }
     }
 }

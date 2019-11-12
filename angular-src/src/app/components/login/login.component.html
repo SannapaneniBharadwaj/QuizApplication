@@ -5,7 +5,7 @@
           <br>
           <label for="Username">Username</label>
           <input type="text" class="form-control" placeholder="Enter Username" 
-          [(ngModel)]="username" #username1="ngModel" name="username" required>
+          [(ngModel)]="username" #username1="ngModel" name="username" required autofocus>
           <div class="alert alert-danger" *ngIf="username1.touched && !username1.valid">Username is required</div>
         </div>
         <div class="form-group">

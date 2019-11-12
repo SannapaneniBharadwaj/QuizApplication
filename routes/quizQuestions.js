@@ -9,7 +9,7 @@ router.get('/data/java.json',  (req, res,next) => {
 
     res.setHeader('Access-Control-Allow-Origin', 'http://localhost:4200');
     //console.log(res);
-    console.log(req.url);
+    console.log("GET request to" +req.url);
     // Get the file using courseID
     res.sendFile(path.join(__dirname, req.url));
   });
@@ -20,7 +20,7 @@ router.get('/data/html.json',  (req, res,next) => {
 
     res.setHeader('Access-Control-Allow-Origin', 'http://localhost:4200');
     //console.log(res);
-    console.log(req.url);
+    console.log("GET request to" +req.url);
     // Get the file using courseID
     res.sendFile(path.join(__dirname, req.url));
   });
@@ -31,7 +31,7 @@ router.get('/data/general.json',  (req, res,next) => {
 
     res.setHeader('Access-Control-Allow-Origin', 'http://localhost:4200');
     //console.log(res);
-    console.log(req.url);
+    console.log("GET request to" + req.url);
     // Get the file using courseID
     res.sendFile(path.join(__dirname, req.url));
   });
@@ -42,7 +42,7 @@ router.get('/data/javascript.json',  (req, res,next) => {
 
     res.setHeader('Access-Control-Allow-Origin', 'http://localhost:4200');
     //console.log(res);
-    console.log(req.url);
+    console.log("GET request to"+req.url);
     // Get the file using courseID
     res.sendFile(path.join(__dirname, req.url));
   });

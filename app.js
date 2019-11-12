@@ -5,6 +5,7 @@ const cors = require('cors');
 const passport = require('passport');
 const mongoose = require('mongoose');
 const config = require('./config/database');
+var fs=require('fs');
 
 // Connect To Database (NEW) But not working!!!!!!!!!! (because of secret in db.js!!!!!)
 //const db = require('./config/database');
@@ -22,11 +23,13 @@ const config = require('./config/database');
 mongoose.connect(config.database, { useMongoClient: true});
 // On Connection
 mongoose.connection.on('connected', () => {
-  console.log('Connected to Database '+config.database);
+  var msg='Connected to Database '+config.database;
+  fs.appendFileSync('./routes/erroLog.txt',msg);
 });
 // On Error
 mongoose.connection.on('error', (err) => {
-  console.log('Database error '+err);
+  var msg='Database error '+err;
+  fs.appendFileSync('./routes/erroLog.txt',msg);
 });
 
 const app = express();
@@ -68,6 +71,9 @@ app.get('*', (req, res) => {
 
 // Start Server
 app.listen(port, () => {
-  console.log('Server started on port '+port);
+  var msg='Server started on port '+port;
+  fs.appendFileSync('./routes/erroLog.txt',msg);
 });
+
+
 

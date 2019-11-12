@@ -27,7 +27,7 @@ router.post('/register', (req, res, next) => {
 router.post('/authenticate', (req, res, next) => {
   const username = req.body.username;
   const password = req.body.password;
-
+  console.log("POST request to" + req.url);
   User.getUserByUsername(username, (err, user) => {
     if(err) throw err;
     if(!user) {
@@ -59,6 +59,7 @@ router.post('/authenticate', (req, res, next) => {
 
 // Profile
 router.get('/profile', passport.authenticate('jwt', {session:false}), (req, res, next) => {
+  console.log("GET request to" + req.url);
   res.json({user: req.user});
 });
 
@@ -69,7 +70,7 @@ router.get('/quizdata', (req, res) => {
   // const courseId = req.body.courseId;
 
 
-  console.log("Hai I am in the quizdata file");
+  console.log("GET request to" + req.url);
 
   // Get the file using courseID
   res.sendFile(path.join(__dirname, 'data/java.json'));
