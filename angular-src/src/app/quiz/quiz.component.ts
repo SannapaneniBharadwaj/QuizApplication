@@ -85,6 +85,21 @@ export class QuizComponent implements OnInit {
     this.mode = 'quiz';
   }
 
+  retryQuiz() {
+    this.ngOnInit();
+    this.quizService.get(this.quizName).subscribe(res1 => {
+      this.quiz = new Quiz(res1);
+      this.pager.count = this.quiz.questions.length;
+      this.pager.index=0;
+      this.startTime = new Date();
+      this.ellapsedTime = '00:00';
+      this.timer = setInterval(() => { this.tick(); }, 1000);
+      this.duration = this.parseTime(this.config.duration);
+    });
+    this.mode = 'quiz';
+    this.goTo(0);
+  }
+
   tick() {
     const now = new Date();
     const diff = (now.getTime() - this.startTime.getTime()) / 1000;

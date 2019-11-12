@@ -63,12 +63,15 @@
       <h2>Number of Correct Answers : {{score}}</h2>
       <h2>Number of Wrong Answers : {{wrong}}</h2>
     </div>
+    <div>
+        <button class="btn btn-lg btn-success btn-block text-uppercase" (click)="retryQuiz();" >Retry Quiz</button>
+    </div>
     <h4 class="alert alert-info text-center">You may close this window now.</h4>
   </div>
   <hr />
   <div *ngIf="lastPage && mode!='result'"> 
     <!-- <button class="btn btn-info" (click)="mode = 'review'">Review</button> -->
-    <button class="btn btn-primary btn-padding" (click)="onSubmit();" >Submit Quiz</button>
+    <button class="btn btn-primary " (click)="onSubmit();" >Submit Quiz</button>
   </div>
 </div>
 
