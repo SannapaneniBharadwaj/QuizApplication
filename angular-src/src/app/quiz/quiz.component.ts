@@ -2,7 +2,6 @@ import { Component, OnInit } from '@angular/core';
 import { QuizService } from '../services/quiz.service';
 import { HelperService } from '../services/helper.service';
 import { Option, Question, Quiz, QuizConfig } from '../models/index';
-//import { NavbarService } from '../services/navbar.service';
 import { LocationStrategy } from '@angular/common';
 import { Router } from '@angular/router';
 

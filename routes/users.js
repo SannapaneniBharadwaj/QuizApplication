@@ -38,7 +38,7 @@ router.post('/authenticate', (req, res, next) => {
       if(err) throw err;
       if(isMatch) {
         const token = jwt.sign({data: user}, config.secret, {
-          expiresIn: 604800 // 1 week
+          expiresIn: 3600 // 1 week
         });
         res.json({
           success: true,
@@ -63,18 +63,10 @@ router.get('/profile', passport.authenticate('jwt', {session:false}), (req, res,
   res.json({user: req.user});
 });
 
-// Quiz Data
-router.get('/quizdata', (req, res) => {
-
-  // Might have to change how we get the courseID
-  // const courseId = req.body.courseId;
-
-
+// UserName
+router.get('/username', passport.authenticate('jwt', {session:false}), (req, res, next) => {
   console.log("GET request to" + req.url);
-
-  // Get the file using courseID
-  res.sendFile(path.join(__dirname, 'data/java.json'));
+  res.json({username: req.user.username});
 });
-
 
 module.exports = router;

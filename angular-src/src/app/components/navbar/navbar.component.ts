@@ -13,6 +13,7 @@ export class NavbarComponent implements OnInit {
 
   user:Object;
   userName:string;
+  username:string;
 
   constructor(
     private authService: AuthService,
@@ -24,19 +25,19 @@ export class NavbarComponent implements OnInit {
     this.helperService.loggedUser.subscribe(data=>
       {
         this.userName=data;
+        this.username = data;
       })
-    // console.log("In NG onINIT")
-    // if(this.authService.loggedIn()){
-    //   this.authService.getProfile().subscribe(profile => {
-    //     console.log("Getting user data");
-    //     this.user = profile.user;
-    //   },
-    //    err => {
-    //      console.log(err);
-    //      return false;
-    //    }
-    //    );  
-    // }
+
+      if(this.authService.loggedIn()){
+        this.authService.getUser().subscribe(data => {
+          this.username = data.username;
+        },
+         err => {
+           console.log(err);
+           return false;
+         });
+         this.userName = this.username;
+      }
   }
 
   onLogoutClick() {
