@@ -1,8 +1,4 @@
 <html>
-<!-- <head>
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
-  </head> -->
-
   <body>
     <br>
     <br>
@@ -48,17 +44,6 @@
   </div>
   <div class="result" *ngIf="mode=='result'">
     <h2>Quiz Result</h2>
-    <!-- <div *ngFor="let question of quiz.questions; let index = index">
-      <div class="result-question">
-        <h5>{{index + 1}}. {{question.name}}</h5>
-        <div class="row">
-          <div class="col-6" *ngFor="let Option of question.options">
-            <input id="{{Option.id}}" type="checkbox" disabled="disabled" [(ngModel)]="Option.selected" /> {{Option.name}}
-          </div>
-        </div>
-        <div class="p-1 m-2 alert {{ isCorrect(question) == 'correct'? 'alert-success': 'alert-danger'}}">Your answer is {{isCorrect(question)}}.</div>
-      </div>
-    </div> -->
     <div>
       <h2>Number of Correct Answers : {{score}}</h2>
       <h2>Number of Wrong Answers : {{wrong}}</h2>
