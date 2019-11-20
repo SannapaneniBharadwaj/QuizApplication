@@ -3,6 +3,7 @@ import { AuthService } from '../../services/auth.service';
 import { Router } from '@angular/router';
 import { FlashMessagesService } from 'angular2-flash-messages';
 import { HelperService } from 'app/services/helper.service';
+import { LocationStrategy } from '@angular/common';
 
 @Component({
   selector: 'app-navbar',
@@ -19,7 +20,13 @@ export class NavbarComponent implements OnInit {
     private authService: AuthService,
     private router: Router,
     private flashMessage: FlashMessagesService,
-    private helperService: HelperService) { }
+    private helperService: HelperService,private location: LocationStrategy) { 
+      //added to disable browser back button
+    history.pushState(null, null, window.location.href);  
+    this.location.onPopState(() => {
+    history.pushState(null, null, window.location.href);
+    }); 
+    }
 
   ngOnInit() {
     this.helperService.loggedUser.subscribe(data=>
